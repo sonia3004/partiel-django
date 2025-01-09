@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Supprimer un Massage</title>
+</head>
+<body>
+    <h1>Supprimer le Massage : {{ massage.name }}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <p>Êtes-vous sûr de vouloir supprimer ce massage ?</p>
+        <button type="submit">Confirmer</button>
+        <a href="{% url 'home' %}">Annuler</a>
+    </form>
+</body>
+</html>

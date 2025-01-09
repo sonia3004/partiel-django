@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+<h2>Bienvenue dans notre Centre de Bien-Être</h2>
+<p>Découvrez nos services pour vous détendre et prendre soin de vous.</p>
+
+
+<div>
+    <a href="{% url 'massages_home' %}" class="btn">Voir nos Massages</a>
+    <a href="{% url 'produits_home' %}" class="btn">Voir nos Produits</a>
+    <a href="{% url 'register' %}" class="btn btn-register">S'inscrire</a>
+</div>
+
+
+{% if user.is_superuser %}
+    <div style="margin-top: 20px;">
+        <h3>Actions administrateur</h3>
+        <a href="{% url 'create_massage' %}" class="btn-admin">Ajouter un Massage</a>
+        <a href="{% url 'admin:index' %}" class="btn-admin">Accéder au panneau d'administration</a>
+    </div>
+{% endif %}
+{% endblock %}

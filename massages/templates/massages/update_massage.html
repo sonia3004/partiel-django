@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier un Massage</title>
+</head>
+<body>
+    <h1>Modifier le Massage : {{ massage.name }}</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Mettre à Jour</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mon Site{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Bienvenue</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/massages/">Massages</a></li>
+                <li><a href="/produits/">Produits</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+       
+        {% endblock %}
+    </main>
+    <footer>
+        <p>© 2025 - Mon Centre de Bien-Être</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Massages</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Nos Massages</h1>
+        <a href="{% url 'create_massage' %}" class="btn-create-massage">Ajouter un Massage</a>
+    </header>
+    <main>
+        <div class="massages-container"> 
+            {% for massage in massages %}
+            <div class="massage-card"> 
+                <img src="{{ massage.image.url }}" alt="{{ massage.name }}">
+                <h2>{{ massage.name }}</h2>
+                <p>{{ massage.description }}</p>
+                <div class="massage-card-actions">
+                    <a href="{% url 'reserve_massage' massage.id %}" class="btn-reserver-massage">Réserver</a>
+                    <a href="{% url 'update_massage' massage.id %}" class="btn-update-massage">Modifier</a>
+                    <form method="POST" action="{% url 'delete_massage' massage.id %}" class="form-delete-massage">
+                        {% csrf_token %}
+                        <button type="submit" class="btn-delete-massage">Supprimer</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div style="margin-bottom: 20px;">
+            <a href="{% url 'home' %}" class="btn-retour">Retour à l'Accueil</a>
+        </div>
+    </main>
+</body>
+</html>
